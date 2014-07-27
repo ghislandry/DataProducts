@@ -1,9 +1,9 @@
 library(shiny)
 
-# library(datasets)
-# data(galton)
-# 
-# fit <- lm(child ~ parent, data = galton)
+require(UsingR)
+data(galton)
+ 
+fit <- lm(child ~ parent, data = galton)
 
 guessHeight <- function(fHeight, mHeight, predictor, gender){ # prediction function
         
@@ -25,13 +25,13 @@ guessHeight <- function(fHeight, mHeight, predictor, gender){ # prediction funct
                 }
                 else{
                         if(!("Mother" %in% var)){
-                               #as.numeric(predict(fit, data.frame("parent" = c(fHeight))))
-                                23.9415 + 0.6463*fHeight
+                               as.numeric(predict(fit, data.frame("parent" = c(fHeight))))
+                                #23.9415 + 0.6463*fHeight
                                
                         }
                         else{
-                                #as.numeric(predict(fit, data.frame("parent" = c(mHeight))))
-                                23.9415 + 0.6463*mHeight
+                                as.numeric(predict(fit, data.frame("parent" = c(mHeight))))
+                                #23.9415 + 0.6463*mHeight
                                 
                         }
                 }

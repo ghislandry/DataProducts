@@ -20,10 +20,11 @@ shinyUI(pageWithSidebar(
                 h5("To predict your hieght, you must provide 
                    the height (in inch) of at least one of your parent
                    according to the predictor you want to use. 
-                   You might also want to use the heights of your two parents
+                   You might also want to use the heights of both parents
                    in which case you need to select all the predictors."),
                 h5("Once all the parameters are selected, use the submit button 
-                   to submit your query. Parameters you have selected will be 
+                   to submit your query for the first submit. Subsequent, queries 
+                   automatically update the display pannel. Parameters you have selected will be 
                    displayed to you along with your predicted height.")
                 
                 
