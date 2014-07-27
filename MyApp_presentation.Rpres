@@ -1,0 +1,58 @@
+MyApp : Short Overview
+========================================================
+author: GhisLain Landry
+date: `r format(Sys.Date(), format="%B %d %y")`
+transition: rotate
+
+<small>
+Coursera Data Science Specialization<br>
+Deloping Data product Module
+</small>
+
+Objective
+========================================================
+
+MyApp is a simple program that I developed in the context of the Developing Data products class. It serves the following purposes. 
+
+- Illustrate features of Shiny
+- Implement a simple prediction algorithm to predict a child height based on its parents' 
+   - Two prediction models  (Note: they are pretty much the same)
+        - An empiric prediction model
+        - Linear regression based prediction model
+  
+
+Implementation details: Prediction models
+========================================================
+- Empirical model
+  - The height of a child is predicted as the average of its perents' heigh plus or minus a constant depending on whether he is a girl or a boy..
+- Linear regression based prediction model
+  - Built from the galton data set available in R.(code for building the model)  
+```{r, results='hide'}
+require(UsingR)
+data(galton)
+fit <- lm(child ~ parent, data= galton)
+summary(fit)$coef # display models coefficients
+```
+
+Implementation details: Prediction models (cont.)
+========================================================
+
+```{r, echo=FALSE}
+require(UsingR)
+data(galton)
+fit <- lm(child ~ parent, data= galton)
+summary(fit)$coef # display models coefficients
+```
+Example: Predict the child height when the parent is 68 inches
+```{r}
+as.numeric(predict(fit, data.frame("parent" = c(68))))
+```
+
+MyApp: Usage 
+========================================================
+To use MyApp you should provide a few information:
+- The heigh of at least one of your parents 
+- Select the appropriate predictor
+  - MyApp predicts using the empirical model when both predictors are selected.
+- The submit button allows you to submit your initial query
+  - Subsequent queries automaticaly update the display pannel with the information you entered and your predicted height
